@@ -1,0 +1,396 @@
+/* Custom CSS Reset and Base Styles */
+:root {
+    --primary-color: #A3795C; /* Warm, inviting accent */
+    --secondary-color: #f7f7f7; /* Light background */
+    --text-color: #333333;
+    --light-text-color: rgb(248, 243, 243);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 1.5em;
+}
+
+/* --- Header & Navigation --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+
+/* --- 1. Hero Section --- */
+.hero-section {
+    height: 100vh;
+    /* Placeholder: Replace with your final home photo */
+    background: url('images/0.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: var(--light-text-color);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--light-text-color);
+    letter-spacing: 2px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.hero-content .date {
+    font-size: 2rem;
+    margin: 1.5rem 0 2.5rem;
+    font-weight: 700;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #8c644a; /* Slightly darker shade */
+    transform: scale(1.05);
+}
+
+/* --- General Content Sections --- */
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    overflow: hidden; /* Clear floats/contain grid */
+}
+
+/* --- 2. Story Section (Flexbox Layout) --- */
+.story-section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.story-image-block, .story-text-block {
+    flex: 1;
+}
+
+.story-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-text-block h2 {
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.story-text-block p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --- 3. Journey Section (Visual Block Gallery/CSS Grid) --- */
+.section-description {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #777;
+    font-style: italic;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Create a responsive grid: 3 columns on large screens, adjust automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--light-text-color);
+    padding: 1.5rem;
+    transform: translateY(100%); /* Start hidden below the image */
+    transition: transform 0.4s ease-out;
+}
+
+.gallery-item:hover .item-overlay {
+    transform: translateY(0); /* Slide up on hover */
+}
+
+.item-overlay h3 {
+    color: var(--light-text-color);
+    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+}
+
+.item-overlay p {
+    font-size: 0.9rem;
+}
+
+
+/* --- 4. Details Section --- */
+.details-section {
+    background-color: white;
+    padding-bottom: 6rem;
+}
+
+.details-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.info-block {
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.info-block h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.info-block p {
+    margin: 0.5rem 0;
+}
+
+.map-block iframe {
+    border-radius: 4px;
+}
+
+/* RSVP Form Styles */
+.rsvp-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rsvp-form {
+    display: grid;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="email"],
+.rsvp-form select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.rsvp-form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.rsvp-form button[type="submit"]:hover {
+    background-color: #8c644a;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--text-color);
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+/* --- Responsiveness (Making it Mobile-Friendly) --- */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .story-section {
+        flex-direction: column; /* Stack the image and text blocks */
+        text-align: center;
+    }
+    
+    .story-text-block h2 {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .details-content {
+        grid-template-columns: 1fr; /* Stack detail blocks */
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin-top: 0.5rem;
+    }
+
+    nav ul li a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content .date {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    .content-section {
+        padding: 2rem 1rem;
+    }
+}
+.google-form-embed {
+    width: 100%;
+    height: 650px; 
+    border: none; 
+    overflow: hidden; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
