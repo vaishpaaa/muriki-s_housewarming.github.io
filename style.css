@@ -92,11 +92,9 @@ nav ul li a:hover:after {
 }
 
 
-/* --- 1. Hero Section --- */
 .hero-section {
     height: 100vh;
-    /* Placeholder: Replace with your final home photo */
-    background: url('0.jpg') no-repeat center center/cover;
+    background: img src="0.jpg";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +109,7 @@ nav ul li a:hover:after {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
 .hero-content {
@@ -395,3 +393,4 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 
 }
+
